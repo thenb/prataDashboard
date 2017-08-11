@@ -2273,7 +2273,11 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   line-height: 1.42857143;
+<<<<<<< HEAD
   vertical-align: middle;
+=======
+  vertical-align: top;
+>>>>>>> fdd0616035e20c3ee226dadbba6fe8b2494568ce
   border-top: 1px solid #ddd;
 }
 .table > thead > tr > th {

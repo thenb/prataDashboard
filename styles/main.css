@@ -19,8 +19,13 @@ body {
 
 /* Custom page header */
 .header {
+<<<<<<< HEAD
   /*border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;*/
+=======
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+>>>>>>> fdd0616035e20c3ee226dadbba6fe8b2494568ce
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {

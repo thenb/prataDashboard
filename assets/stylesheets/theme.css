@@ -1429,6 +1429,7 @@ html.fixed .visible-xl-inline-block {
 .header .logo {
 	float: left;
 	margin: 20px 0 0 20px;
+
 }
 
 .header .logo img {
@@ -6184,6 +6185,26 @@ html.ie11 .scroll-to-top {
 
 .panel-featured-left {
 	border-left: 3px solid #060e33;
+}
+
+.panel-featured .panel-heading {
+	border-radius: 0;
+}
+
+.panel-featured-top {
+	border-top: 3px solid #33353F;
+}
+
+.panel-featured-right {
+	border-right: 3px solid #33353F;
+}
+
+.panel-featured-bottom {
+	border-bottom: 3px solid #33353F;
+}
+
+.panel-featured-left {
+	border-left: 3px solid #33353F;
 }
 
 .panel-featured-primary {

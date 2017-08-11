@@ -1,4 +1,5 @@
 					<header class="page-header " style=" padding:0 5px 0 5px; margin:0; ">
+<<<<<<< HEAD
 						<h2>{{operacao}} Especificador</h2>
 					</header>
 					<!-- start: page -->
@@ -10,6 +11,19 @@
 									</header>
 									<div class="panel-body">										
 										<form class="form-horizontal form-bordered" name="formEspec">
+=======
+						<h2><i class="fa fa-universal-access" aria-hidden="true"></i> {{operacao}} Especificador</h2>
+					</header>
+					<!-- start: page -->
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										<h2 class="panel-title">{{operacao}} Especificador</h2>
+									</header>
+									<div class="panel-body">										
+											<form class="form-horizontal form-bordered" name="formEspec">
+>>>>>>> fdd0616035e20c3ee226dadbba6fe8b2494568ce
 											<div class="tabs noPaddingBot" >
 												<ul class="nav nav-tabs">
 													<li class="active">
@@ -25,7 +39,11 @@
 													<a href="pages-user-profile.html#senha" data-toggle="tab" ng-show="user.login.id_tipo_login==1 && !aprovar && !novo"><i class="fa fa-key Senha" aria-hidden="true"></i> Senha</a>
 													</li>
 												</ul>
+<<<<<<< HEAD
 												<div class="tab-content">
+=======
+												<div class="tab-content" style="height:350px;overflow:auto;overflow-y:scroll">
+>>>>>>> fdd0616035e20c3ee226dadbba6fe8b2494568ce
 													<div id="dadosPessoais" class="tab-pane active">
 														<div class="form-group">
 															<label class="col-md-3 control-label" >Nome:</label>
@@ -234,6 +252,7 @@
 												</div>
 											</div>
 										</form>
+<<<<<<< HEAD
 										<div class="form-group pull-right" style="padding-top:15px;">
 											<div class="pull-right">
 												<button type="button" ng-click="salvar(formEspec)" ng-disabled="aprovar" class="btn btn-default" ng-if="!view">Salvar</button>
@@ -245,6 +264,15 @@
 									<footer class="panel-footer"></footer>
 								</section>								
 							</div>
+=======
+									</div>
+								</section>								
+							</div>
+							<div class="col-md-12">
+								<button type="button" ng-click="salvar(formEspec)" ng-disabled="aprovar" class="btn btn-default" ng-if="!view">Salvar</button>
+								<button type="button" ng-click="cancelar()" class="btn  btn-primary " >Cancelar</button>							
+							</div>
+>>>>>>> fdd0616035e20c3ee226dadbba6fe8b2494568ce
 						</div>
 					<!-- end: page -->
 

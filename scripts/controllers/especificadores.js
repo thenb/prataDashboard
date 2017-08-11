@@ -20,11 +20,13 @@ angular.module('prataAngularApp')
 	var promises = [];		
 	
 	
+
 	function init() {		
 			console.log('especificadores');
 			console.log($scope.especificadores);
 	}	
 	
+
 	function getAllEspec() {		
 		var deffered  = $q.defer();		
 		Restangular.one('api/getAllEspec').getList().then(function(users) {
@@ -35,6 +37,7 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
+
 	function excluirExpec(especificador) {		
 		var params = {  id_especificador : especificador.id };	
 		var deffered  = $q.defer();				
@@ -112,7 +115,6 @@ angular.module('prataAngularApp')
 			  });
 	};	
 	
-
 	
 	promises.push(getAllEspec());	
 	
