@@ -1,0 +1,77 @@
+					<header class="page-header " style=" padding:0 5px 0 5px; margin:0; ">
+						<h2><i class="fa fa-industry" aria-hidden="true"></i>  Empresas</h2>
+					</header>
+					<!-- start: page -->
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										<h2 class="panel-title">Empresas</h2>
+									</header>
+									<div class="panel-body">
+										<form>
+											<div class="form-group">
+											  <div class="input-group">
+												<div class="input-group-addon"><i class="fa fa-search"></i></div>
+												<input type="text" class="form-control" placeholder="Buscar" ng-model="searchFish">
+											  </div>
+											</div>
+										</form>
+										<div class="row">
+											<div class="col-xs-6 col-sm-2">
+											<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default" ng-click="novo()" ng-if="tipoUsuario == 1"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>				
+											</div>
+											<div class=" col-xs-6 col-sm-2 col-sm-offset-8">
+											<p class="output" style="padding-top:15px">Total da busca: <b>{{filtered.length}}</b></p>
+											</div>
+										</div>
+										<table class="table table-bordered table-striped" show-filter="true">
+											<thead>
+											  <tr>
+												<td class="col-xs-4 col-sm-4">
+													<a  ng-click="sortType = 'nome'; sortReverse = !sortReverse">
+													Nome
+													<span ng-show="sortType == 'nome'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="hidden-xs col-sm-4">
+													<a  ng-click="sortType = 'segmento'; sortReverse = !sortReverse">
+													Segmento
+													<span ng-show="sortType == 'segmento'" class="fa fa-caret-down"></span>
+												</td>												
+												<td class="col-xs-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2">
+													<a  ng-click="sortType = 'qtdIndicacoes'; sortReverse = !sortReverse">
+													Indicações
+													<span ng-show="sortType == 'qtdIndicacoes'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="col-xs-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2">
+													<a  ng-click="sortType = 'qtdPresenca'; sortReverse = !sortReverse">
+													Presença
+													<span ng-show="sortType == 'qtdPresenca'" class="fa fa-caret-down"></span>
+												</td>												
+												<td class="col-xs-6 col-sm-2">Ações</td>												
+											  </tr>
+											</thead>
+						
+											<tr ng-repeat="user in empresas | orderBy:sortType:sortReverse| filter:searchFish as filtered">
+												<td class="col-xs-4 col-sm-4">
+													{{user.nome}}</td>
+												<td class="hidden-xs col-sm-4">
+													{{user.segmento}}</td>
+												<td class="hidden-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2">
+													{{user.qtdIndicacoes}}</td>
+												<td class="hidden-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2">
+													{{user.qtdPresenca}}</td>													
+												<td class="col-xs-6 col-sm-2">
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="view(user)" title="Visualizar" ><i class="fa fa-eye" aria-hidden="true"></i>
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="editar(user)" title="Editar" ng-if="tipoUsuario == 1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="excluir(user)" title="Excluir" ng-if="tipoUsuario == 1"><i class="fa fa-minus" aria-hidden="true"></i></i>
+												</td>
+											</tr>
+										</table>
+										<div class="text-center" ng-if="!empresas.length">Nenhuma empresa cadastrada.</div>
+									</div>
+								</section>								
+							</div>
+						</div>
+			
+					<!-- end: page -->
