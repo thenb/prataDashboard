@@ -97,7 +97,7 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 
-	console.log($scope.user.login.id_tipo_login);
+	//console.log($scope.user.login.id_tipo_login);
 	if($scope.user.login.id_tipo_login !=1 || $scope.user.login.id_tipo_login !=2 ){
 		promises.push(getAllEmpresasVisited());
 	}
