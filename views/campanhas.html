@@ -1,0 +1,63 @@
+					<header class="page-header " style=" padding:0 5px 0 5px; margin:0; ">
+						<h2><i class="fa fa-industry" aria-hidden="true"></i>  Campanhas</h2>	
+					</header>
+					<!-- start: page -->
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										<h2 class="panel-title">Campanhas</h2>
+									</header>
+									<div class="panel-body">
+										
+										<div class="row" >
+											<div class="col-xs-6 col-sm-2" style="padding-top:5px">
+											<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default" ng-click="novo()"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>				
+											</div>
+											<div class=" col-xs-6 col-sm-2 col-sm-offset-8">
+											<p class="output" style="padding-top:15px">Total da busca: <b>{{filtered.length}}</b></p>
+											</div>	
+										</div>	
+										<table class="table table-bordered table-striped" show-filter="true" >
+											<thead>
+											  <tr>												
+												<td class="col-xs-8 col-sm-4">
+													<a  ng-click="sortType = 'nome'; sortReverse = !sortReverse">
+													Nome
+													<span ng-show="sortType == 'nome'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="hidden-xs col-sm-3">
+													<a  ng-click="sortType = 'data_inicio'; sortReverse = !sortReverse">
+													Data Início
+													<span ng-show="sortType == 'data_inicio'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="hidden-xs  col-sm-3">
+													<a  ng-click="sortType = 'data_fim'; sortReverse = !sortReverse">
+													Data Fim
+													<span ng-show="sortType == 'data_fim'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="col-xs-2 col-sm-2">Ações</td>																							
+											  </tr>
+											</thead>
+						
+											<tr ng-repeat="user in campanhas | orderBy:sortType:sortReverse| filter:searchFish as filtered">
+												<td class="col-xs-8 col-sm-4">
+													{{user.nome}}</td>
+												<td class="hidden-xs col-sm-3">
+													{{user.data_inicio_temp}}</td>
+												<td class="hidden-xs  col-sm-3">
+													{{user.data_fim_temp}}</td>
+												<td class="col-xs-2 col-sm-1">
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default" title="Editar" ng-click="editar(user)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default" title="Excluir" ng-click="excluir(user)"><i class="fa fa-minus" aria-hidden="true"></i></i>
+												</td>
+											</tr>
+												
+										</table>
+										<div class="text-center" ng-if="!campanhas.length">Nenhuma campanha cadastrada.</div>									
+									</div>
+								</section>								
+							</div>
+						</div>
+			
+					<!-- end: page -->
