@@ -362,7 +362,7 @@ a:active {
 	}
 
 	.header .logo-container {
-		height: 60px;
+		height: 70px;
 		left: 0;
 		position: fixed;
 		right: 0;
@@ -374,7 +374,7 @@ a:active {
 		background: #060e33;
 		float: none !important;
 		height: 60px;
-		margin-top: 60px;
+		margin-top: 70px;
 		width: 100%;
 		border-bottom: 1px solid #E9E9E6;
 	}
@@ -1455,15 +1455,15 @@ html.fixed .visible-xl-inline-block {
 }
 
 .header .toggle-sidebar-left {
-	background: #CCC;
+	background: #f6f6f6;
 	border-radius: 100px;
-	color: #FFF;
+	color: #060e33;
 	height: 30px;
 	line-height: 30px;
 	position: absolute;
 	right: 15px;
 	text-align: center;
-	top: 14px;
+	top: 20px;
 	width: 30px;
 }
 
@@ -1486,7 +1486,7 @@ html.fixed .visible-xl-inline-block {
 		float: none;
 		display: inline-block;
 		line-height: 57px;
-		margin-top: 0;
+		margin-top: 5px;
 	}
 
 	.header .search,
@@ -12748,7 +12748,7 @@ ul.widget-todo-list li:last-child {
 }
 
 .widget-profile-info .profile-info .profile-footer a {
-	color: #fff;
+	color: #333;
 	opacity: 0.6;
 }
 

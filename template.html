@@ -158,7 +158,7 @@
 						<a data-toggle="dropdown" class="fonteProfile">
 							<figure class="profile-picture">
 								<img ng-if="!user.login.url_perfil" src="assets/images/!logged-user.jpg" alt="" class="img-circle" />
-								<!--<img ng-if="user.login.url_perfil" src="{{user.login.url_perfil}}" alt="" class="img-circle" />-->
+								<img ng-if="user.login.url_perfil" src="{{user.login.url_perfil}}" alt="" class="img-circle"/>
 							</figure>
 							<div class="profile-info">
 								<span class="name" ng-if="user.login.id_tipo_login==3">{{user.especificador.nome}}</span>
