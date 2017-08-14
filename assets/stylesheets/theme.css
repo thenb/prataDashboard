@@ -371,11 +371,12 @@ a:active {
 	}
 
 	.header .header-right {
-		background: #FFF;
+		background: #060e33;
 		float: none !important;
 		height: 60px;
 		margin-top: 60px;
 		width: 100%;
+		border-bottom: 1px solid #E9E9E6;
 	}
 
 	.inner-wrapper {
@@ -1476,9 +1477,9 @@ html.fixed .visible-xl-inline-block {
 	.header .logo-container {
 		background-color: #F6F6F6;
 		background-image: -webkit-linear-gradient(#F6F6F6 0%, #FFFFFF 45%);
-		background-image: linear-gradient(#F6F6F6 0%, #FFFFFF 45%);
+		background-image: linear-gradient(to bottom, #060e33, #1d2f60);
 		border-bottom: 1px solid #E9E9E6;
-		border-top: 3px solid #EDEDED;
+		/*border-top: 3px solid #EDEDED;*/
 	}
 
 	.header .logo-container .logo {
@@ -2870,8 +2871,8 @@ textarea[data-toggle=autosize] {
 select {
 	border: 1px solid #E5E7E9;
 	border-radius: 6px;
-	height: 46px;
-	padding: 12px;
+	height: 40px;
+	padding: 10px;
 	outline: none;
 }
 
@@ -5393,7 +5394,7 @@ html.header-dark .notifications > li .notification-icon i {
 @media only screen and (max-width: 767px) {
 	.userbox .name,
 	.userbox .role {
-		max-width: 68px;
+		max-width: 100px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -6719,7 +6720,7 @@ html .panel .panel-heading-transparent + .panel-body {
 .nav-tabs li a, .nav-tabs li a:hover {
 	background: #F4F4F4;
 	border-bottom: none;
-	border-left: 1px solid #EEE;
+	border-left: 1px solid #CCC;
 	border-right: 1px solid #EEE;
 	border-top: 3px solid #DDD;
 	color: #555;

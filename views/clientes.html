@@ -1,10 +1,10 @@
-					<header class="page-header " style=" padding:0 5px 0 5px; margin:0; ">
+					<header class="page-header">
 						<h2>Clientes</h2>
 					</header>
 					<!-- start: page -->
 						<div class="row">
 							<div class="col-lg-12">
-								<section class="panel">
+								<section class="panel panel-featured">
 									<header class="panel-heading">
 										<h2 class="panel-title"><i class="fa fa-address-book" aria-hidden="true"></i>  Clientes</h2>
 									</header>
@@ -17,33 +17,33 @@
 											  </div>
 											</div>
 										</form>
-										<div class="row">
-											<div class="col-xs-6 col-sm-2">
-											<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default" ng-click="novo()" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-plus" aria-hidden="true"></i> Indicar</button>				
+										<div class="row" style="padding:15px 0;">
+											<div class="col-xs-6 col-sm-6">
+												<p class="output" style="padding-top:15px">Total da busca: <b>{{filtered.length}}</b></p>
 											</div>
-											<div class=" col-xs-6 col-sm-2 col-sm-offset-8">
-											<p class="output" style="padding-top:15px">Total da busca: <b>{{filtered.length}}</b></p>
+											<div class=" col-xs-6 col-sm-6">
+												<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary pull-right" ng-click="novo()" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-plus" aria-hidden="true"></i> Indicar</button>				
 											</div>
 										</div>
 										<table class="table table-bordered table-striped" show-filter="true">
 											<thead>
 											  <tr>
-												<td class="col-xs-5 col-md-3">
+												<td class="col-xs-5 col-md-3" style="text-align:center;">
 													<a  ng-click="sortType = 'nome'; sortReverse = !sortReverse">
 													Nome
 													<span ng-show="sortType == 'nome'" class="fa fa-caret-down"></span>
 												</td>
-												<td class="col-xs-5 col-md-3" >
+												<td class="col-xs-5 col-md-3" style="text-align:center;">
 													<a  ng-click="sortType = 'segmento'; sortReverse = !sortReverse">
 													Empresa
 													<span ng-show="sortType == 'segmento'" class="fa fa-caret-down"></span>
 												</td>
-												<td class="hidden-xs col-md-3">
+												<td class="hidden-xs col-md-3" style="text-align:center;">
 													<a  ng-click="sortType = 'segmento'; sortReverse = !sortReverse">
 													Cidade
 													<span ng-show="sortType == 'segmento'" class="fa fa-caret-down"></span>
 												</td>
-												<td class="col-xs-3 col-md-3">Ações</td>												
+												<td class="col-xs-3 col-md-3" style="text-align:center;">Ações</td>												
 											  </tr>
 											</thead>
 						
@@ -57,16 +57,17 @@
 												<td class="hidden-xs col-md-3">
 													{{cliente.cidade}}
 												</td>												
-												<td class="col-xs-3 col-md-3">
-													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="view(cliente)" title="Visualizar" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2 || cliente.id_indicou == user.especificador.id "><i class="fa fa-eye" aria-hidden="true"></i>
-													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="editar(cliente)"  title="Editar" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-													<button type="button" class="mb-xs mt-xs mr-xs btn btn-lg btn-default"  ng-click="excluir(cliente)"  title="Excluir" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-minus" aria-hidden="true"></i>
+												<td class="col-xs-3 col-md-3" style="text-align:center;">
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-default"  ng-click="view(cliente)" title="Visualizar" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2 || cliente.id_indicou == user.especificador.id "><i class="fa fa-eye" aria-hidden="true"></i>
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-default"  ng-click="editar(cliente)"  title="Editar" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													<button type="button" class="mb-xs mt-xs mr-xs btn btn-default"  ng-click="excluir(cliente)"  title="Excluir" ng-if=" user.login.id_tipo_login==1 || user.login.id_tipo_login==2"><i class="fa fa-minus" aria-hidden="true"></i>
 												</td>
 											</tr>
 										</table>
 										<div class="text-center" ng-if="!clientes.length && user.login.id_tipo_login!=3 ">Nenhum cliente Cadastrado/Indicado.</div>
 										<div class="text-center" ng-if="!indicou && user.login.id_tipo_login==3 ">Nenhum cliente Cadastrado/Indicado.</div>	
 									</div>
+									<footer class="panel-footer"></footer>
 								</section>								
 							</div>
 						</div>

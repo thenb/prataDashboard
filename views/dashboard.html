@@ -14,7 +14,7 @@
 											<div class="widget-profile-info">
 												<div class="profile-picture">							
 													<img ng-if="!user.login.url_perfil" src="assets/images/!logged-user.jpg">
-													<!--<img ng-if="user.login.url_perfil" src="{{user.login.url_perfil}}">-->
+													<img ng-if="user.login.url_perfil" src="{{user.login.url_perfil}}">
 												</div>
 												<div class="profile-info">
 													<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==3">{{user.especificador.nome}}</h4>

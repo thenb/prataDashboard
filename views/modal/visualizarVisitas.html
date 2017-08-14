@@ -10,17 +10,17 @@
 					<table class="table table-bordered table-striped" show-filter="true" >
 						<thead>
 						  <tr>												
-							<td class="col-sm-5">
+							<td class="col-sm-5" style="text-align:center;">
 								<a  ng-click="sortType = 'pontos'; sortReverse = !sortReverse">
 								Nome
 								<span ng-show="sortType == 'pontos'" class="fa fa-caret-down"></span>
 							</td>
-							<td class="col-sm-5">
+							<td class="col-sm-5" style="text-align:center;">
 								<a  ng-click="sortType = 'data_criacao'; sortReverse = !sortReverse">
 								Empresa
 								<span ng-show="sortType == 'data_criacao'" class="fa fa-caret-down"></span>
 							</td>
-							<td class="col-sm-2">
+							<td class="col-sm-2" style="text-align:center;">
 								<a  ng-click="sortType = 'observacao'; sortReverse = !sortReverse">
 								Data
 								<span ng-show="sortType == 'observacao'" class="fa fa-caret-down"></span>
@@ -40,7 +40,7 @@
 				</div>				
             </div>
             <div class="modal-footer">				
-                <button type="button" ng-click="close(false)" class="btn btn-primary " data-dismiss="modal">Cancelar</button>                
+                <button type="button" ng-click="close(false)" class="btn btn-default " data-dismiss="modal">Cancelar</button>                
             </div>
         </div>
     </div>
