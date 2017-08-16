@@ -9,7 +9,7 @@
  */
 angular.module('prataAngularApp')
   .controller('EspecificadoresCtrl',  function (Restangular, $scope, $filter, NgTableParams, $q, ModalService, $state, Notification) {	
-	
+
 	
 	$scope.sortType     = ['nome']; // set the default sort type
 	$scope.sortReverse  = false;  // set the default sort order
@@ -20,12 +20,14 @@ angular.module('prataAngularApp')
 	var promises = [];		
 	
 	
-	function init() {			
+
+	function init() {		
 			console.log('especificadores');
 			console.log($scope.especificadores);
 	}	
 	
-	function getAllEspec() {			
+
+	function getAllEspec() {		
 		var deffered  = $q.defer();		
 		Restangular.one('api/getAllEspec').getList().then(function(users) {
 			console.log(users);
@@ -35,7 +37,8 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
-	function excluirExpec(especificador) {			
+
+	function excluirExpec(especificador) {		
 		var params = {  id_especificador : especificador.id };	
 		var deffered  = $q.defer();				
 		Restangular.all('api/excluirEspec').post(JSON.stringify(params)).then(function(espec) {		
@@ -111,7 +114,6 @@ angular.module('prataAngularApp')
 				});
 			  });
 	};	
-	
 	
 	
 	promises.push(getAllEspec());	

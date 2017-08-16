@@ -1,1 +1,11 @@
 /* Add here all your CSS customizations */
+
+.form-item-container .list-inline li span {
+	color: #fff !important;
+    border-radius: 5px !important;
+	padding: 5px 5px 5px 10px !important;
+	background: #192a59 !important;
+}
+.angucomplete-selected-row {
+    background-color: #192a59 !important;
+}
