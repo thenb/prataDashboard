@@ -175,9 +175,16 @@ angular.module('prataAngularApp')
 		Restangular.all('api/saveCliente').post(JSON.stringify(params)).then(function(espec) {					
 			if (espec.error) {
 				 deffered.reject(espec.error);
-			}else{
-				deffered.resolve(espec);
-			}			
+			}	
+			var email = espec.email;
+			var params1 = {  destino : email, assunto: 'Cadastro de Cliente', msg : 'Bem Vindo ao Prata da casa!'};								
+			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
+				if (email.error) {
+					 deffered.reject(email.error);
+				}else{
+					deffered.resolve(email);
+				}				
+			});			
 		});
 		return deffered.promise;
 	}	
@@ -416,6 +423,8 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
+		
+	
 	$scope.salvar = function (formClientes) {			
 		$scope.submited = true;
 		var promises = [];	
@@ -423,7 +432,7 @@ angular.module('prataAngularApp')
 		//Novo		
 		if($state.params.novo){
 			if(!formClientes.$invalid){				
-				promises.push(salvarCliente());	
+				promises.push(salvarCliente());					
 				$q.all(promises).then(function(retorno) {
 					console.log(retorno);
 					if(retorno[0].type===1){

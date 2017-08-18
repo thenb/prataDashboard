@@ -157,9 +157,15 @@ angular.module('prataAngularApp')
 		Restangular.all('api/saveEmpre').post(JSON.stringify(params)).then(function(empre) {					
 			if (empre.error) {
 				 deffered.reject(empre.error);
-			}else{
+			}
+			var email = empre.email;
+			var params1 = {  destino : email, assunto: 'Cadastro de Empresa', msg : 'Bem Vindo ao Prata da casa!'};								
+			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
+				if (email.error) {
+					 deffered.reject(email.error);
+				}
 				deffered.resolve(empre);
-			}			
+			});		
 		});
 		return deffered.promise;
 	}

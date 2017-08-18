@@ -53,6 +53,23 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
+	function sendMailAprovado(especificador) {		
+		var deffered  = $q.defer();	
+		var params = {  id_login : especificador.id_login};		
+		Restangular.all('api/getLoginEspec').post(JSON.stringify(params)).then(function(login) {					
+			var email = login.email;
+			var params1 = {  destino : email, assunto: 'Cadastro Aprovado', msg : 'Bem Vindo ao Prata da casa!'};								
+			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
+				if (email.error) {
+					 deffered.reject(email.error);
+				}else{
+					deffered.resolve(email);
+				}				
+			});
+		});
+		return deffered.promise;
+	}		
+	
 	function desaprovarExpec(especificador) {			
 		var params = {  id_especificador : especificador.id, id_login: especificador.id_login};	
 		var deffered  = $q.defer();				
@@ -66,6 +83,23 @@ angular.module('prataAngularApp')
 		});
 		return deffered.promise;
 	}
+	
+	function sendMailDesaprovado(especificador) {		
+		var deffered  = $q.defer();	
+		var params = {  id_login : especificador.id_login};		
+		Restangular.all('api/getLoginEspec').post(JSON.stringify(params)).then(function(login) {					
+			var email = login.email;
+			var params1 = {  destino : email, assunto: 'Cadastro Não foi Aprovado', msg : 'Seu cadastro não foi aceito, entre em contato com a equipe Prata da Casa!'};								
+			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
+				if (email.error) {
+					 deffered.reject(email.error);
+				}else{
+					deffered.resolve(email);
+				}				
+			});
+		});
+		return deffered.promise;
+	}	
 	
 	function showNotification() {
         Notification.success('Especificador aprovado com sucesso!');
@@ -97,6 +131,7 @@ angular.module('prataAngularApp')
 				  if(result){
 					var promises = [];	
 					promises.push(aprovarExpec(espec));	
+					promises.push(sendMail(espec));	
 					$q.all(promises).then(function(retorno) {
 						if(retorno[0].type===1){
 							showErrorNotification(retorno[0].msg);
@@ -123,7 +158,8 @@ angular.module('prataAngularApp')
 				modal.close.then(function(result) {
 				  if(result){
 					var promises = [];	
-					promises.push(aprovarExpec(espec));	
+					promises.push(desaprovarExpec(espec));
+					promises.push(sendMailDesaprovado(espec));	
 					$q.all(promises).then(function(retorno) {
 						if(retorno[0].type===1){
 							showErrorNotificationDesaprovar(retorno[0].msg);

@@ -17,19 +17,29 @@ angular.module('prataAngularApp')
 	$scope.pontuacao = {};
 	$scope.submited = false;
 	
-	function novaPontuacao(empresa) {			
+	function novaPontuacao() {			
 		var params = {  id_espec : $scope.id_espec, pontuacao : $scope.pontuacao , id_campanha : $scope.id_campanha, id_usuario : $scope.id_usuario };	
 		var deffered  = $q.defer();				
 		Restangular.all('api/novaPontuacao').post(JSON.stringify(params)).then(function(espec) {		
 			if (espec.error) {
 				 deffered.reject(espec.error);
-			}else{				
-				deffered.resolve(espec);
-			}
-			
+			}				
+			var params1 = {  id_login : $scope.id_espec};		
+			Restangular.all('api/getLoginEspec').post(JSON.stringify(params1)).then(function(login) {					
+				var email = login.email;
+				var params1 = {  destino : email, assunto: 'Cadastro Pontuação', msg : 'Cadastro de pontuação recebido!'};								
+				Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
+					if (email.error) {
+						 deffered.reject(email.error);
+					}else{
+						deffered.resolve(espec);
+					}				
+				});
+			});	
 		});
 		return deffered.promise;
-	}	
+	}
+
 
 	function showNotification() {
         Notification.success('Pontos cadastrado com sucesso!');
@@ -49,7 +59,7 @@ angular.module('prataAngularApp')
 		var promises = [];			
 		$scope.submited = true;
 		if(!formNovaPontuacao.$invalid){
-			promises.push(novaPontuacao($scope.pontuacao));	
+			promises.push(novaPontuacao());	
 			
 			$q.all(promises).then(function(retorno) {
 				if(retorno[0].type===1){
