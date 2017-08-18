@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Prata da Casa - Programa de Relacionamento</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="description" content="">  
 	<!-- Web Fonts  -->
@@ -36,7 +36,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
     <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" />
     <!-- endbower -->
@@ -44,8 +43,30 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/favicons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/favicons/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/favicons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/favicons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/favicons/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="assets/images/favicons/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="assets/images/favicons/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="assets/images/favicons/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#" />
+	<meta name="msapplication-TileImage" content="assets/images/favicons/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="assets/images/favicons/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="assets/images/favicons/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="assets/images/favicons/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="assets/images/favicons/mstile-310x310.png" />		
+	
   </head>
-  <body>
+  <body style="background: #1d2f60!important;">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -91,22 +112,26 @@
 					</div>
 					<div class="panel-body">
 						<div class="alert alert-info">
-							<p class="m-none text-weight-semibold h6">Entre o seu email abaixo e entraremos em contato com instruções de recuperar a senha!</p>
+							<p class="m-none text-weight-semibold h6">Digite seu email abaixo que enviaremos as instruções de como recuperar a sua senha!</p>
 						</div>						
 							<div class="form-group mb-none">
 								<div class="input-group">
-									<input name="recoverUser.email" id="recoverEmail" type="email" placeholder="E-mail" class="form-control input-lg" />
+									<input name="recoverUser.email" id="recoverEmail" type="email" placeholder="E-mail" class="form-control" />
 									<span class="input-group-btn">
-										<button class="btn btn-primary btn-lg" id="recuperar" >Recuperar!</button>
+										<button class="btn btn-primary" id="recuperar" >Recuperar!</button>
 									</span>
 								</div>
 							</div>
-							<p class="text-center mt-lg">Lembrou? <a href="index.html"> Entrar!</a></p>						
+							<p class="text-center mt-lg">Lembrou? <a href="index.html" style="color: #337ab7;"> Entrar!</a></p>						
 					</div>
 				</div>
-				 <p class="text-center"><span class="glyphicon glyphicon-heart"></span> Desenvolvido por DNBProject</p>
 			</div>
 		</section>
+	<footer class="navbar-fixed-bottom">
+      <div class="container">
+        <p class="text-center" style="color:#fff;"><span class="glyphicon glyphicon-heart"></span> Desenvolvido por DNBProject</p>
+      </div>
+    </footer>
      
 	
 	<!-- Vendor -->
