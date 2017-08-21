@@ -58,7 +58,7 @@ angular.module('prataAngularApp')
 		var params = {  id_login : especificador.id_login};		
 		Restangular.all('api/getLoginEspec').post(JSON.stringify(params)).then(function(login) {					
 			var email = login.email;
-			var params1 = {  destino : email, assunto: 'Cadastro Aprovado', msg : 'Bem Vindo ao Prata da casa!'};								
+			var params1 = {  destino : email, assunto: '(Prata da Casa) Cadastro Aprovado', msg : 'Bem-Vindo ao Prata da Casa!'};								
 			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
 				if (email.error) {
 					 deffered.reject(email.error);
@@ -89,7 +89,7 @@ angular.module('prataAngularApp')
 		var params = {  id_login : especificador.id_login};		
 		Restangular.all('api/getLoginEspec').post(JSON.stringify(params)).then(function(login) {					
 			var email = login.email;
-			var params1 = {  destino : email, assunto: 'Cadastro Não foi Aprovado', msg : 'Seu cadastro não foi aceito, entre em contato com a equipe Prata da Casa!'};								
+			var params1 = {  destino : email, assunto: '(Prata da Casa) Cadastro Não foi Aprovado', msg : 'Seu cadastro não foi aceito, entre em contato com a equipe Prata da Casa!'};								
 			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
 				if (email.error) {
 					 deffered.reject(email.error);

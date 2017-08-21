@@ -41,7 +41,7 @@
 												</td>
 												<td class="col-sm-4" style="text-align:center;">
 													<a  ng-click="sortType = 'observacao'; sortReverse = !sortReverse">
-													Cadastrar Visita
+													Ações
 													<span ng-show="sortType == 'observacao'" class="fa fa-caret-down"></span>
 												</td>												
 											  </tr>
@@ -54,14 +54,19 @@
 													{{user.nomeEmpresa}}</td>
 												<td class="col-sm-4" ng-if="tipoSelecionado.id==3">
 													{{user.empresa}}</td>
-												<td class="col-sm-4" style="text-align:center;"><button type="button" class="mb-xs mt-xs mr-xs btn btn-default"  ng-click="cadastrarVisita(user)" title="Cadastrar Visita"><i class="fa fa-plus" aria-hidden="true"></i></i></td>	{{user.observacao}}</td>
+												<td class="col-sm-4" style="text-align:center;">
+												<button type="button" class="mb-xs mt-xs mr-xs btn btn-default"  ng-click="cadastrarVisita(user)" title="Cadastrar Visita"><i class="fa fa-plus" aria-hidden="true"></i>
+												<button type="button" class="mb-xs mt-xs mr-xs btn btn-default" title="Visualizar"  ng-click="visualizar(user)"><i class="fa fa-eye" aria-hidden="true"></i>
+												</td>
+												
 											</tr>																						
 										</table>
-										<div class="text-center" ng-if="!especificadores.length">Selecione entre Cliente ou Especificador para realizar o cadastro da visita.</div>									
+										<div class="text-center" ng-if="!especificadores.length">Selecione entre Cliente ou Especificador para realizar o cadastro da visita.</div>
+																	
 									</div>
 									<footer class="panel-footer"></footer>
 								</section>								
 							</div>
-						</div>
 			
+						</div>
 					<!-- end: page -->

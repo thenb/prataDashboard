@@ -19,6 +19,8 @@ angular.module('prataAngularApp')
 	
 	function novaPontuacao() {			
 		var params = {  id_espec : $scope.id_espec, pontuacao : $scope.pontuacao , id_campanha : $scope.id_campanha, id_usuario : $scope.id_usuario };	
+		var pontos = $scope.pontuacao
+		console.log($scope.pontuacao);
 		var deffered  = $q.defer();				
 		Restangular.all('api/novaPontuacao').post(JSON.stringify(params)).then(function(espec) {		
 			if (espec.error) {
@@ -27,7 +29,7 @@ angular.module('prataAngularApp')
 			var params1 = {  id_login : $scope.id_espec};		
 			Restangular.all('api/getLoginEspec').post(JSON.stringify(params1)).then(function(login) {					
 				var email = login.email;
-				var params1 = {  destino : email, assunto: 'Cadastro Pontuação', msg : 'Cadastro de pontuação recebido!'};								
+				var params1 = {  destino : email, assunto: '(Prata da Casa) Cadastro Pontuação', msg : 'Nova Pontuação Recebida. Pontos: '+pontos.valor+'.'};								
 				Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
 					if (email.error) {
 						 deffered.reject(email.error);

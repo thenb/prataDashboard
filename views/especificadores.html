@@ -28,21 +28,21 @@
 										<table class="table table-bordered table-striped" show-filter="true">
 											<thead>
 											  <tr>
-												<td class="col-xs-6 col-sm-3 col-md-2 col-lg-3" style="text-align:center;">
+												<td class="col-xs-3 col-sm-3 col-md-2 col-lg-3" style="text-align:center;">
 													<a  ng-click="sortType = 'nome'; sortReverse = !sortReverse">
 													Nome
 													<span ng-show="sortType == 'nome'" class="fa fa-caret-down"></span>
+												</td>
+												<td class="col-xs-3 col-sm-2 col-md-2 col-lg-2" style="text-align:center;">
+													<a  ng-click="sortType = 'sobrenome'; sortReverse = !sortReverse">
+													Sobrenome
+													<span ng-show="sortType == 'cpf'" class="fa fa-caret-down"></span>
 												</td>
 												<td class="hidden-xs col-sm-3 col-md-2 col-lg-3" style="text-align:center;">
 													<a  ng-click="sortType = 'empresa'; sortReverse = !sortReverse">
 													Empresa
 													<span ng-show="sortType == 'empresa'" class="fa fa-caret-down"></span>
-												</td>
-												<td class="hidden-xs col-sm-2 col-md-2 col-lg-2" style="text-align:center;">
-													<a  ng-click="sortType = 'cpf'; sortReverse = !sortReverse">
-													CPF
-													<span ng-show="sortType == 'cpf'" class="fa fa-caret-down"></span>
-												</td>
+												</td>												
 												<td class="hidden-xs col-sm-1 col-md-2 col-lg-1" style="text-align:center;">
 													<a  ng-click="sortType = 'cidade'; sortReverse = !sortReverse">
 													Cidade
@@ -57,12 +57,12 @@
 											  </tr>
 											</thead>							
 											<tr ng-repeat="user in especificadores | orderBy:'nome':false | filter:searchFish as filtered">
-												<td class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+												<td class="col-xs-3 col-sm-3 col-md-2 col-lg-3">
 													{{user.nome}}</td>
+												<td class="col-xs-3 col-sm-2 col-md-2 col-lg-2" style="text-align:center;">
+													{{user.sobrenome}}</td>
 												<td class="col-sm-3 hidden-xs col-md-2 col-lg-3">
-													{{user.empresa}}</td>
-												<td class="col-sm-2 hidden-xs col-md-2 col-lg-2" style="text-align:center;">
-													{{user.cpf}}</td>
+													{{user.empresa}}</td>												
 												<td class="col-sm-1 hidden-xs col-md-2 col-lg-1">
 													{{user.cidade}}</td>
 												<td class="col-sm-1 hidden-xs col-md-1 col-lg-1" ng-if=" tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">

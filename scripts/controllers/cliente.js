@@ -21,7 +21,9 @@ angular.module('prataAngularApp')
 	}
 		
 	if($state.params.novo){
-		$scope.operacao = 'Indicar';		
+		$scope.operacao = 'Indicar';	
+		$scope.cliente1.tipo = 0;
+		$scope.cliente1.terrea = 0;
 	}else{
 		if($scope.view){
 			$scope.operacao = 'Visualizar';			
@@ -38,7 +40,7 @@ angular.module('prataAngularApp')
 		}else{
 			$scope.cliente1.fase1 = false;
 		}
-		console.log($scope.cliente1);
+		
 		if($scope.cliente1.fase2){
 			$scope.cliente1.fase2 = true;
 		}else{
@@ -177,7 +179,7 @@ angular.module('prataAngularApp')
 				 deffered.reject(espec.error);
 			}	
 			var email = espec.email;
-			var params1 = {  destino : email, assunto: 'Cadastro de Cliente', msg : 'Bem Vindo ao Prata da casa!'};								
+			var params1 = {  destino : email, assunto: '(Prata da Casa) Cadastro de Cliente', msg : 'Bem-Vindo ao Prata da Casa!'};								
 			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
 				if (email.error) {
 					 deffered.reject(email.error);
@@ -197,6 +199,16 @@ angular.module('prataAngularApp')
 		});
 		return deffered.promise;		
 	}
+	
+	function editarSobrenomeCliente() {			
+		var deffered  = $q.defer();	
+		var params = {  id_cliente : $scope.cliente1.id, sobrenome : $scope.cliente1.sobrenome  };		
+		Restangular.all('api/clienteUpdateSobrenome').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
 	
 	function editarEmpresaCliente() {			
 		var deffered  = $q.defer();	
@@ -369,6 +381,24 @@ angular.module('prataAngularApp')
 		return deffered.promise;		
 	}
 	
+	function editarTipo(tipo1) {			
+		var deffered  = $q.defer();	
+		var params = {  id_cliente : $scope.cliente1.id, tipo : tipo1  };		
+		Restangular.all('api/clienteUpdateTipo').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
+	function editarTerrea(terrea1) {			
+		var deffered  = $q.defer();	
+		var params = {  id_cliente : $scope.cliente1.id, terrea : terrea1  };		
+		Restangular.all('api/clienteUpdateTerrea').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
 	function editarEspecificador() {			
 		var deffered  = $q.defer();	
 		var params = {  id_cliente : $scope.cliente1.id, id_especificador : $scope.cliente1.id_especificador  };		
@@ -449,6 +479,9 @@ angular.module('prataAngularApp')
 				if(formClientes.nome.$dirty){
 					promises.push(editarNomeCliente());	
 				}
+				if(formClientes.sobrenome.$dirty){
+					promises.push(editarSobrenomeCliente());	
+				}
 				
 				if(formClientes.data_nascimento.$dirty){
 					promises.push(editarDataNascimentoCliente());	
@@ -524,8 +557,11 @@ angular.module('prataAngularApp')
 				
 				if(formClientes.fase9.$dirty){
 					promises.push(editarFase9());	
-				}
+				}	
 				
+				promises.push(editarTipo($scope.cliente1.tipo));
+				promises.push(editarTerrea($scope.cliente1.terrea));
+						
 				if(formClientes.nomeEspecificador.$dirty){
 					promises.push(editarEspecificador());	
 				}	

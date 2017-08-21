@@ -309,7 +309,9 @@ var app = angular
 		controllerAs: 'visitageral'
 	});	
 	
-	RestangularProvider.setBaseUrl('https://prata.herokuapp.com/');
+	//RestangularProvider.setBaseUrl('https://prata.herokuapp.com/');
+	RestangularProvider.setBaseUrl('http://ec2-54-233-210-28.sa-east-1.compute.amazonaws.com:9002/');
+	
 	
       
   });

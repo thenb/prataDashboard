@@ -12,7 +12,7 @@
 						<div class="col-md-8">
 							<div ng-class="{'has-error' : (formNovaPontuacao.valor.$invalid && formNovaPontuacao.valor.$dirty && submited)|| (submited && formNovaPontuacao.valor.$pristine),
 							'has-success' : (!formNovaPontuacao.valor.$invalid && formNovaPontuacao.valor.$dirty)}">
-								<input type="text" class="form-control" id="valor" ui-number-mask="0" name="valor"  ng-model="pontuacao.valor" required>
+								<input type="text" class="form-control" id="valor" name="valor"  ng-model="pontuacao.valor" required>
 								<span ng-show="(formNovaPontuacao.valor.$invalid && formNovaPontuacao.valor.$dirty && submited) || formNovaPontuacao.valor.$pristine && submited " class="ng-hide">
 									<p class="error-msg" ng-show="formNovaPontuacao.valor.$error.required">Valor é Obrigatório.</p>
 								</span>

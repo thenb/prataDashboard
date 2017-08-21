@@ -8,7 +8,7 @@
  * Controller of the prataAngularApp
  */
 angular.module('prataAngularApp')
-  .controller('VisitasCtrl',  function (Restangular, $scope, $filter, $q, ModalService, Notification) {	
+  .controller('VisitasCtrl',  function (Restangular, $scope, $filter, $q, ModalService, Notification, $rootScope) {	
 	
 	
 	$scope.sortType     = ['nome']; // set the default sort type
@@ -125,6 +125,21 @@ angular.module('prataAngularApp')
 						}			
 					});
 				  }				  
+				});
+			  });
+	};
+	
+	$scope.visualizar = function(user) {	
+		console.log(user)	
+        var scope = $rootScope.$new();
+		scope.params = {id_login: user.id_login, nome : user.nome, tipo: $scope.tipoSelecionado.id};
+		ModalService.showModal({
+				scope: scope,
+				templateUrl: '/views/modal/visualizarVisitas.html',
+				controller: 'VisualizarVisitas'
+			  }).then(function(modal) {				
+				modal.element.modal();
+				modal.close.then(function(result) {				  				  
 				});
 			  });
 	};

@@ -33,11 +33,16 @@
 													Nome
 													<span ng-show="sortType == 'nome'" class="fa fa-caret-down"></span>
 												</td>
-												<td class="hidden-xs col-sm-4" style="text-align:center;">
+												<td class="hidden-xs col-sm-3" style="text-align:center;">
 													<a  ng-click="sortType = 'segmento'; sortReverse = !sortReverse">
 													Segmento
 													<span ng-show="sortType == 'segmento'" class="fa fa-caret-down"></span>
-												</td>												
+												</td>
+												<td class="col-xs-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">
+													<a  ng-click="sortType = 'pontosEmpresa'; sortReverse = !sortReverse">
+													Pontuação
+													<span ng-show="sortType == 'pontosEmpresa'" class="fa fa-caret-down" ></span>
+												</td>
 												<td class="col-xs-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">
 													<a  ng-click="sortType = 'qtdIndicacoes'; sortReverse = !sortReverse">
 													Indicações
@@ -55,8 +60,10 @@
 											<tr ng-repeat="user in empresas | orderBy:sortType:sortReverse| filter:searchFish as filtered">
 												<td class="col-xs-4 col-sm-4">
 													{{user.nome}}</td>
-												<td class="hidden-xs col-sm-4">
+												<td class="hidden-xs col-sm-3">
 													{{user.segmento}}</td>
+												<td class="hidden-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">
+													{{user.pontosEmpresa}}</td>
 												<td class="hidden-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">
 													{{user.qtdIndicacoes}}</td>
 												<td class="hidden-1 col-sm-1" ng-if="tipoUsuario==1 || tipoUsuario==2" style="text-align:center;">

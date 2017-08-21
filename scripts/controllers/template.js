@@ -19,7 +19,7 @@ angular.module('prataAngularApp')
 		var decoded = jwt_decode(localStorage.getItem("token"));	
 		$scope.user = decoded.user;
 		$rootScope.user = decoded.user;
-		console.log($scope.user);
+		console.log($scope.user);		
 	}	
 	
 	

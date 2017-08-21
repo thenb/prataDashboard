@@ -76,7 +76,7 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
-	
+	console.log($scope.id_login);
 	if($scope.tipo == 3 || $scope.tipo == 2){
 		promises.push(getAllVisitasLoginId());
 	}	

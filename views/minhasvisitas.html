@@ -62,6 +62,8 @@
 													Sim</td>
 											</tr>
 										</table>
+										<div class="text-center" ng-if="user.login.id_tipo_login ==4"><font style="color:red">O cliente que visitar a empresa, recebe 1% de desconto por empresa visitada.<font></div>
+										<div class="text-center" ng-if="user.login.id_tipo_login ==3"><font style="color:red">O especificador que visitar todas as empresas, recebe 500 pontos.</font></div>
 										<div class="text-center" ng-if="!empresas.length">Nenhuma visita cadastrada.</div>
 									</div>
 									<footer class="panel-footer"></footer>

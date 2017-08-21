@@ -31,7 +31,7 @@
 												<div class="tab-content">
 													<div id="dadosClientes" class="tab-pane active">
 														<div class="form-group">
-															<label class="col-md-3 control-label" >Nome do Cliente:</label>
+															<label class="col-md-3 control-label" >Nome:</label>
 															<div class="col-md-8">																
 																<div ng-class="{'has-error' : (formClientes.nome.$invalid && formClientes.nome.$dirty && submited)|| (submited && formClientes.nome.$pristine),
 																'has-success' : (!formClientes.nome.$invalid && formClientes.nome.$dirty)}">
@@ -40,6 +40,12 @@
 																		<p class="error-msg" ng-show="formClientes.nome.$error.required">Nome é Obrigatório.</p>
 																	</span>
 																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-md-3 control-label" >Sobrenome:</label>
+															<div class="col-md-8">																
+																<input type="text" class="form-control" id="sobrenome" name="sobrenome"  ng-model="cliente1.sobrenome" ng-disabled="view">
 															</div>
 														</div>
 														<div class="form-group">
@@ -132,7 +138,7 @@
 																<input type="text" class="form-control" id="bairro" name="bairro" ng-model="cliente1.bairro" ng-disabled="view">															</div>
 															<label class="col-md-2 control-label" for="inputReadOnly">Número:</label>
 															<div class="col-md-3">
-																<input type="text" class="form-control" id="numero"  name="numero" ui-number-mask="0"  ng-model="cliente1.numero" ng-disabled="view">
+																<input type="text" class="form-control" id="numero"  name="numero" ng-model="cliente1.numero" ng-disabled="view">
 															</div>	
 														</div>
 														<div class="form-group">
@@ -211,7 +217,44 @@
 																			<input type="checkbox" id="fase9"  name="fase9" ng-model="cliente1.fase9" ng-disabled="view">
 																		</div>
 																	</div>
-																</div>	
+																</div>
+																<header class="panel-heading">	
+																	<h2 class="panel-title">Tipo da Obra</h2>
+																</header>	
+																<div class="form-group">
+																	<label class="col-md-3 control-label" for="inputDefault">Residencial:</label>
+																	<div class="col-md-1">
+																		<div class="checkbox">
+																			<input style="margin-left: -20px;" type="radio" id="residencial"  name="tipo" ng-model="cliente1.tipo"  ng-value="0" ng-disabled="view">
+																		</div>
+																	</div>
+																	<label class="col-md-2 control-label" for="inputDefault">Comercial:</label>
+																	<div class="col-md-1">
+																		<div class="checkbox">
+																			<input style="margin-left: -20px;" type="radio" id="comercial"  name="tipo" ng-model="cliente1.tipo"  ng-value="1" ng-disabled="view">
+																		</div>
+																	</div>
+																	<label class="col-md-2 control-label" for="inputDefault">Prédio:</label>
+																	<div class="col-md-1">
+																		<div class="checkbox">
+																			<input style="margin-left: -20px;" type="radio" id="predio"  name="tipo" ng-model="cliente1.tipo"  ng-value="2" ng-disabled="view">
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-md-3 control-label" for="inputDefault">Térrea:</label>
+																	<div class="col-md-1">
+																		<div class="checkbox">
+																			<input style="margin-left: -20px;" type="radio" id="terrea" name="terrea" ng-model="cliente1.terrea"  ng-value="0" ng-disabled="view">
+																		</div>
+																	</div>
+																	<label class="col-md-2 control-label" for="inputDefault">Sobrado:</label>
+																	<div class="col-md-1">
+																		<div class="checkbox">
+																			<input style="margin-left: -20px;" type="radio" id="sobrado"  name="terrea" ng-model="cliente1.terrea"  ng-value="1" ng-disabled="view">
+																		</div>
+																	</div>																	
+																</div>
 															</div>
 														</section>
 													</div>
@@ -235,12 +278,12 @@
 															</div>
 														</div>
 														<div class="form-group">
-															<label class="col-md-3 control-label" for="inputDefault">Telefone Especificador 1:</label>
-															<div class="col-md-2">
+															<label class="col-md-3 control-label" for="inputDefault">Telefone 1:</label>
+															<div class="col-md-3">
 																<input type="text" class="form-control" id="telefone1Especificador" name="telefone1Especificador" ng-model="cliente1.telefone1Especificador" ng-disabled="true">
 															</div>
-															<label class="col-md-4 control-label" for="inputDefault">Telefone Especificador 2:</label>
-															<div class="col-md-2">
+															<label class="col-md-2 control-label" for="inputDefault">Telefone 2:</label>
+															<div class="col-md-3">
 																<input type="text" class="form-control" id="telefone2Especificador" name="telefone2Especificador" ng-model="cliente1.telefone2Especificador" ng-disabled="true">
 															</div>																													
 														</div>

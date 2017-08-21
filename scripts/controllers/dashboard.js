@@ -8,7 +8,7 @@
 * Controller of the prataAngularApp
 */
 angular.module('prataAngularApp')
-.controller('DashboardCtrl', function (Restangular, $scope, $q) {      
+.controller('DashboardCtrl', function (Restangular, $scope, $q, $rootScope, ModalService, $window) {      
 	var promises = [];	
 	  
 	function init() {					
@@ -96,7 +96,56 @@ angular.module('prataAngularApp')
 		});
 		return deffered.promise;
 	}
+	
+	function getTotalPontosEmpresa() {
+		var deffered  = $q.defer();	
+		var params = {  id_login : $scope.user.login.id_login };		
+		Restangular.all('api/getTotalPontosEmpresa').post(JSON.stringify(params)).then(function(ind) {			
+			var total =  0;
+			ind.map(function(item){
+				total+= item.pontos;				
+			});			
+			deffered.resolve(total);
+			$scope.pontosEmpresa = total;
+		});
+		return deffered.promise;
+	}
+	
+	function aceitarTermos(cliente) {			
+		var params = {  id_cliente : cliente };	
+		var deffered  = $q.defer();				
+		Restangular.all('api/aceiteCliente').post(JSON.stringify(params)).then(function(espec) {		
+			if (espec.error) {
+				 deffered.reject(espec.error);
+			}else{
+				deffered.resolve(espec);
+			}			
+		});
+		return deffered.promise;
+	}
+	
 
+	if($scope.user.login.id_tipo_login==4 && $scope.user.cliente.aceite==0){
+		var scope = $rootScope.$new();
+		scope.params = {id_cliente: $scope.user.cliente.id};
+		ModalService.showModal({
+			scope: scope,
+			templateUrl: '/views/modal/aceite.html',
+			controller: 'AceiteModalCtrl'		
+		}).then(function(modal) {				
+			modal.element.modal();
+			modal.close.then(function(result) {
+				if(result){	
+					var promises = [];						
+					promises.push(aceitarTermos($scope.user.cliente.id));
+					$q.all(promises).then(function(retorno) {
+						console.log('aceite realizado com sucesso');			
+					});
+				}				  
+			});
+		});		
+	}
+	
 	//console.log($scope.user.login.id_tipo_login);
 	if($scope.user.login.id_tipo_login !=1 || $scope.user.login.id_tipo_login !=2 ){
 		promises.push(getAllEmpresasVisited());
@@ -110,6 +159,7 @@ angular.module('prataAngularApp')
 	if($scope.user.login.id_tipo_login == 2 ){
 		promises.push(getTotalPresencasByEmpresa());	
 		promises.push(getTotalIndicacoesEmpresa());
+		promises.push(getTotalPontosEmpresa());
 	}	
 
 
@@ -125,6 +175,11 @@ angular.module('prataAngularApp')
 			init();		
 		}	
 	);
+	
+	
+
+	
+	
 
 
 

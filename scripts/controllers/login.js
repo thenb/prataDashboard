@@ -61,9 +61,8 @@ angular.module('prataAngularApp')
 			console.log(retorno);
 			if(retorno[0].type===1){
 				showErrorNotification(retorno[0].msg);
-			}else{
-			$window.location.href = 'template.html';
-			showNotification();				
+			}else{	
+				$window.location.href = 'template.html';						
 			}			
 		});
 	};	

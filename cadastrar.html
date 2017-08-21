@@ -114,10 +114,16 @@
 					</div>
 					<div class="panel-body">
 						<div class="row mb-sm">
-							<div class="col-sm-8">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label>Nome</label>
-									<input name="nome" type="text" id="name" class="form-control " />
+									<input name="nome" type="text" id="name" class="form-control" />
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>Sobrenome</label>
+									<input name="sobrenome" type="text" id="sobrenome" class="form-control " />
 								</div>
 							</div>
 							<div class="col-sm-4">
@@ -306,6 +312,9 @@
 			var erro = '';
 			if($('#name').val()==''){
 				erro += 'Preencher nome '+'\n';
+			}
+			if($('#sobrenome').val()==''){
+				erro += 'Preencher sobrenome '+'\n';
 			}			
 			if($('#email').val()==''){
 				erro += 'Preencher e-mail '+'\n';
@@ -379,7 +388,7 @@
 				var settings = {
 				  "async": true,
 				  "crossDomain": true,
-				  "url": 'https://prata.herokuapp.com/saveEspecPortal',
+				  "url": 'http://ec2-54-233-210-28.sa-east-1.compute.amazonaws.com:9002/saveEspecPortal',
 				  "method": "POST",
 				  "headers": {
 					"content-type": "application/json"    

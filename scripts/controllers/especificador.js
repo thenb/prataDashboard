@@ -61,8 +61,17 @@ angular.module('prataAngularApp')
 	
 	function editarNomeEspec() {			
 		var deffered  = $q.defer();	
-		var params = {  id_especificador : $scope.especificador1.id, nome : $scope.especificador1.nome  };		
+		var params = {  id_especificador : $scope.especificador1.id, nome : $scope.especificador1.nome};		
 		Restangular.all('/api/especificadorUpdateNome').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
+	function editarSobrenomeEspec() {			
+		var deffered  = $q.defer();	
+		var params = {  id_especificador : $scope.especificador1.id, sobrenome : $scope.especificador1.sobrenome  };		
+		Restangular.all('/api/especificadorUpdateSobrenome').post(JSON.stringify(params)).then(function(espec) {					
 			deffered.resolve(espec);			
 		});
 		return deffered.promise;		
@@ -267,7 +276,9 @@ angular.module('prataAngularApp')
 				if(formEspec.nome.$dirty){
 					promises.push(editarNomeEspec());	
 				}
-				
+				if(formEspec.sobrenome.$dirty){
+					promises.push(editarSobrenomeEspec());	
+				}				
 				if(formEspec.empresa.$dirty){
 					promises.push(editarEmpresaEspec());	
 				}

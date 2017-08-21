@@ -159,7 +159,7 @@ angular.module('prataAngularApp')
 				 deffered.reject(empre.error);
 			}
 			var email = empre.email;
-			var params1 = {  destino : email, assunto: 'Cadastro de Empresa', msg : 'Bem Vindo ao Prata da casa!'};								
+			var params1 = {  destino : email, assunto: '(Prata da Casa) Cadastro de Empresa', msg : 'Bem-Vindo ao Prata da Casa!'};								
 			Restangular.all('api/sendMail').post(JSON.stringify(params1)).then(function(email) {		
 				if (email.error) {
 					 deffered.reject(email.error);

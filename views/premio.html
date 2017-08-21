@@ -39,7 +39,7 @@
 						<div class="col-md-8">
 							<div ng-class="{'has-error' : (formPremio.pontos.$invalid && formPremio.pontos.$dirty && submited)|| (submited && formPremio.pontos.$pristine),
 								'has-success' : (!formPremio.pontos.$invalid && formPremio.pontos.$dirty)}">
-								<input type="text" class="form-control" ui-number-mask="0" id="pontos" name="pontos" ng-model="premio1.pontos" ng-disabled="view" required>
+								<input type="text" class="form-control" id="pontos" name="pontos" ng-model="premio1.pontos" ng-disabled="view" required>
 								<span ng-show="(formPremio.pontos.$invalid && formPremio.pontos.$dirty && submited) || formPremio.pontos.$pristine && submited " class="ng-hide">
 									<p class="error-msg" ng-show="formPremio.pontos.$error.required">Pontos é Obrigatório.</p>
 								</span>

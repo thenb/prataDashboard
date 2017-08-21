@@ -129,7 +129,7 @@
 															<div class="col-md-8">
 																<div ng-class="{'has-error' : (formEmpre.numero.$invalid && formEmpre.numero.$dirty && submited)|| (submited && formEmpre.numero.$pristine),
 																'has-success' : (!formEmpre.numero.$invalid && formEmpre.numero.$dirty)}">
-																	<input type="text" class="form-control" id="numero"  name="numero" ui-number-mask="0"  ng-model="empresa1.numero" ng-disabled="aprovar  || view" required>
+																	<input type="text" class="form-control" id="numero"  name="numero" ng-model="empresa1.numero" ng-disabled="aprovar  || view" required>
 																	<span ng-show="(formEmpre.numero.$invalid && formEmpre.numero.$dirty && submited) || formEmpre.numero.$pristine && submited " class="ng-hide">
 																		<p class="error-msg" ng-show="formEmpre.numero.$error.required">Número é Obrigatório.</p>
 																	</span>
