@@ -212,6 +212,12 @@ var app = angular
 		templateUrl: 'views/visitageral.html',
 		controller: 'VisitageralCtrl',
 		controllerAs: 'visitageral'
+	})
+	.state('notificacoes', {
+		url: '/notificacoes',
+		templateUrl: 'views/notificacoes.html',
+		controller: 'NotificacoesCtrl',
+		controllerAs: 'notificacoes'		
 	});
 	
 	
@@ -307,10 +313,18 @@ var app = angular
 		templateUrl: 'views/visitageral.html',
 		controller: 'VisitageralCtrl',
 		controllerAs: 'visitageral'
-	});	
+	})
+	.when('/notificacoes', {		
+		templateUrl: 'views/notificacoes.html',
+		controller: 'NotificacoesCtrl',
+		controllerAs: 'notificacoes'
+	})
 	
-	//RestangularProvider.setBaseUrl('https://prata.herokuapp.com/');
-	RestangularProvider.setBaseUrl('http://ec2-54-233-210-28.sa-east-1.compute.amazonaws.com:9002/');
+	
+	;	
+	
+	RestangularProvider.setBaseUrl('https://prata.herokuapp.com/');
+	//RestangularProvider.setBaseUrl('http://ec2-54-233-210-28.sa-east-1.compute.amazonaws.com:9002/');
 	
 	
       

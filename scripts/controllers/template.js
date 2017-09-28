@@ -8,21 +8,19 @@
  * Controller of the prataAngularApp
  */
 angular.module('prataAngularApp')
-  .controller('TemplateCtrl', function ($scope, $q, Restangular, $window, ModalService, $rootScope) {
+  .controller('TemplateCtrl', function ($scope, $q, Restangular, $window, ModalService, $rootScope, $state) {
     
 	
 	var promises = [];	
 	$scope.user = {};	
 	
+	var decoded = jwt_decode(localStorage.getItem("token"));	
+	$scope.user = decoded.user;
+	$rootScope.user = decoded.user;
 	
 	function init() {			
-		var decoded = jwt_decode(localStorage.getItem("token"));	
-		$scope.user = decoded.user;
-		$rootScope.user = decoded.user;
 		console.log($scope.user);		
-	}	
-	
-	
+	}
 
 	function getUserById() {
 		
@@ -45,7 +43,18 @@ angular.module('prataAngularApp')
 			
 		}		
 		return deffered.promise;		
-	}	
+	}
+
+	function getAllUnreadNotifications() {			
+		var deffered  = $q.defer();	
+		var params = {  id_login : $scope.user.login.id_login };		
+		Restangular.all('api/getAllUnreadNotifications').post(JSON.stringify(params)).then(function(qtd) {				
+			deffered.resolve(qtd);
+			console.log(qtd);
+			$rootScope.totalUnreadNotification = qtd[0].qtd;
+		});
+		return deffered.promise;
+	}
 	
 	$scope.doLogout = function(user) {		
 		ModalService.showModal({
@@ -63,17 +72,21 @@ angular.module('prataAngularApp')
 				});
 			});
 			
+	};
+
+	$scope.notificacoes = function() {	
+		$state.go('notificacoes');	
 	};	
 	
-	//promises.push(getUserById());	
 	
-	//$q.all(promises).then(
-	//	function(user) {
-	//		console.log(user[0]);
-	//		var userTemp = user[0]
-	init();		
-	//	}	
-	//);
+	
+	
+	
+	promises.push(getAllUnreadNotifications());
+	
+	$q.all(promises).then(function(user) {		
+		init();		
+	});
 	
 	
 	

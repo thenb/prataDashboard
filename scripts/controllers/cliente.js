@@ -453,6 +453,12 @@ angular.module('prataAngularApp')
 		return deffered.promise;
 	}
 	
+	function pushMudancaStatusObra() {			
+		var params = {   nome_cliente : $scope.cliente1.nome };		
+		Restangular.all('/api/pushMudancaStatusObra').post(JSON.stringify(params)).then(function(espec) {					
+			return espec;
+		});	
+	}	
 		
 	
 	$scope.salvar = function (formClientes) {			
@@ -476,6 +482,7 @@ angular.module('prataAngularApp')
 		//Edicao
 		}else{			
 			if(!formClientes.$invalid){
+				var mudancaStatusObra = false;
 				if(formClientes.nome.$dirty){
 					promises.push(editarNomeCliente());	
 				}
@@ -525,38 +532,47 @@ angular.module('prataAngularApp')
 				
 				if(formClientes.fase1.$dirty){
 					promises.push(editarFase1());	
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase2.$dirty){
-					promises.push(editarFase2());	
+					promises.push(editarFase2());
+					mudancaStatusObra = true;					
 				}
 				
 				if(formClientes.fase3.$dirty){
 					promises.push(editarFase3());	
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase4.$dirty){
 					promises.push(editarFase4());	
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase5.$dirty){
 					promises.push(editarFase5());	
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase6.$dirty){
 					promises.push(editarFase6());	
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase7.$dirty){
-					promises.push(editarFase7());	
+					promises.push(editarFase7());
+					mudancaStatusObra = true;
 				}
 				
 				if(formClientes.fase8.$dirty){
-					promises.push(editarFase8());	
+					promises.push(editarFase8());
+					mudancaStatusObra = true;					
 				}
 				
 				if(formClientes.fase9.$dirty){
 					promises.push(editarFase9());	
+					mudancaStatusObra = true;
 				}	
 				
 				promises.push(editarTipo($scope.cliente1.tipo));
@@ -598,6 +614,9 @@ angular.module('prataAngularApp')
 						if(retorno[0].type===1){
 						showErrorNotificationEditar(retorno[0].msg);
 						}else{
+						if(mudancaStatusObra){
+							pushMudancaStatusObra();		
+						}
 						showNotificationEditar();		
 						$state.go('clientes');							
 						}	

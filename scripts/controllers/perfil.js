@@ -63,6 +63,24 @@ angular.module('prataAngularApp')
 		return deffered.promise;		
 	}
 	
+	function editarSobrenomeEspec() {			
+		var deffered  = $q.defer();	
+		var params = {  id_especificador : $scope.perfil.id, sobrenome : $scope.perfil.sobrenome  };		
+		Restangular.all('/api/especificadorUpdateSobrenome').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
+	function editarSobrenomeCliente() {			
+		var deffered  = $q.defer();	
+		var params = {  id_cliente : $scope.perfil.id, sobrenome : $scope.perfil.sobrenome  };		
+		Restangular.all('/api/clienteUpdateSobrenome').post(JSON.stringify(params)).then(function(espec) {					
+			deffered.resolve(espec);			
+		});
+		return deffered.promise;		
+	}
+	
 	function editarEmpresaSegmento() {			
 		var deffered  = $q.defer();	
 		var params = {  id_empresa : $scope.perfil.id, segmento : $scope.perfil.segmento  };		
@@ -419,6 +437,15 @@ angular.module('prataAngularApp')
 				}	
 			
 			}
+			if(formPerfil.sobrenome.$dirty){
+				if($scope.user.login.id_tipo_login==3){
+					promises.push(editarSobrenomeEspec());
+				}
+				if($scope.user.login.id_tipo_login==4){
+					promises.push(editarSobrenomeCliente());
+				}			
+			}
+			
 			if(formPerfil.telefone.$dirty){			
 				if($scope.user.login.id_tipo_login==3){
 					promises.push(editarTelefoneEspec());

@@ -113,70 +113,17 @@
 				</div>
 			
 				<!-- start: search & user box -->
-				<div class="header-right">
-			
-					
-			
-					<span class="separator"></span>
-			
-					<ul class="notifications">
-						
-						
+				<div class="header-right">		
+					<span class="separator"></span>			
+					<ul class="notifications">	
 						<li>
-							<a href="index.html#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+							<a ng-click="notificacoes()" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-bell"></i>
-								<span class="badge">0</span>
-							</a>
-			
-							<div class="dropdown-menu notification-menu">
-								<div class="notification-title">
-									<span class="pull-right label label-default">0</span>
-									Notificações
-								</div>
-			
-								<div class="content">
-									<ul>
-										<li ng-if="false">
-											<a href="index.html#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-thumbs-down bg-danger"></i>
-												</div>
-												<span class="title">Server is Down!</span>
-												<span class="message">Just now</span>
-											</a>
-										</li>
-										<li  ng-if="false">>
-											<a href="index.html#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-lock bg-warning"></i>
-												</div>
-												<span class="title">User Locked</span>
-												<span class="message">15 minutes ago</span>
-											</a>
-										</li>
-										<li  ng-if="false">>
-											<a href="index.html#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-signal bg-success"></i>
-												</div>
-												<span class="title">Connection Restaured</span>
-												<span class="message">10/10/2016</span>
-											</a>
-										</li>
-									</ul>
-			
-									<hr />
-			
-									<div class="text-right">
-										<a  class="view-more">Ver Todos</a>
-									</div>
-								</div>
-							</div>
+								<span class="badge">{{totalUnreadNotification}}</span>
+							</a>							
 						</li>
-					</ul>
-			
-					<span class="separator"></span>
-			
+					</ul>			
+					<span class="separator"></span>			
 					<div id="userbox" class="userbox">
 						<a data-toggle="dropdown" class="fonteProfile">
 							<figure class="profile-picture">
@@ -354,22 +301,17 @@
 											</li>
 										</ul>
 									</li>
-									<li class="nav-parent hidden">
+									<li class="nav-parent">
 										<a>
 											<i class="fa fa-bell" aria-hidden="true"></i>											
 											<span>Notificações</span>
 										</a>
 										<ul class="nav nav-children">
 											<li>
-												<a href="#!/empresas">
+												<a href="#!/notificacoes">
 													 Notificações
 												</a>
-											</li>
-											<li>
-												<a href="#!/empresas">
-													 Promoções
-												</a>
-											</li>
+											</li>											
 										</ul>
 									</li>
 								</ul>
@@ -489,6 +431,7 @@
 		<script src="scripts/controllers/modal/registroPontuacaoModal.js"></script>
 		<script src="scripts/controllers/modal/visualizarVisitas.js"></script>
 		<script src="scripts/controllers/modal/visualizarPontuacao.js"></script>
+		<script src="scripts/controllers/modal/notificacaoModal.js"></script>
         <script src="scripts/controllers/empresa.js"></script>
         <script src="scripts/controllers/campanha.js"></script>
 		<script src="scripts/controllers/login.js"></script>
@@ -503,6 +446,7 @@
 		<script src="scripts/controllers/premios.js"></script>
 		<script src="scripts/controllers/premio.js"></script>
 		<script src="scripts/controllers/visitageral.js"></script>
+		<script src="scripts/controllers/notificacoes.js"></script>
         <!-- endbuild -->
 		
 </body>

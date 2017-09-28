@@ -62,13 +62,19 @@
 											</div>	
 										</div>
 									</div>
+									<div class="form-group" ng-show="user.login.id_tipo_login==4 || user.login.id_tipo_login==3">
+										<label class="col-md-3 control-label" for="nome">Sobrenome:</label>
+										<div class="col-md-8">
+											<input type="text" class="form-control" id="sobrenome" name="sobrenome" ng-model="perfil.sobrenome">
+										</div>	
+									</div>
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="nome">Foto do Perfil:</label>
 										<div class="col-md-8">
 											<input type="file" file-upload/>
 										</div>
 									</div>
-									<div class="form-group" ng-if="user.login.id_tipo_login==4 || user.login.id_tipo_login==3">
+									<div class="form-group" ng-if="user.login.id_tipo_login==3">
 										<label class="col-md-3 control-label" for="empresa">Empresa:</label>
 										<div class="col-md-8">
 											<div ng-class="{'has-error' : (formPerfil.empresa.$invalid && formPerfil.empresa.$dirty && submited)|| (submited && formPerfil.empresa.$pristine),

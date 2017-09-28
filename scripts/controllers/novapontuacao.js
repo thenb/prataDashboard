@@ -62,7 +62,7 @@ angular.module('prataAngularApp')
 			showErrorNotification('Favor cadastrar uma campanha ativa!(data fim maior que a data de hoje)!')
 		}else{			
 			var scope = $rootScope.$new();
-			scope.params = {especificador: espec.id, id_campanha : $scope.campanha.id, id_usuario : $scope.user.empresa.usuario_id };
+			scope.params = {especificador: espec.id, id_campanha : $scope.campanha.id, id_usuario : $scope.user.empresa.usuario_id, id_login : espec.id_login, nome : espec.nome  };
 			ModalService.showModal({
 				scope: scope,
 				templateUrl: '/views/modal/novaPontuacaoModal.html',

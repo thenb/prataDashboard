@@ -78,7 +78,21 @@ angular.module('prataAngularApp')
 			}			
 		});
 		return deffered.promise;
-	}
+	}	
+	
+	function pushNovaVisita(visita) {	
+		console.log($scope.user);
+				
+		var params = {  nome : visita.nome, nome_empresa: $scope.user.empresa.nome, id_login : visita.id_login };	
+		
+		var deffered  = $q.defer();				
+		Restangular.all('api/pushNovaVisita').post(JSON.stringify(params)).then(function(espec) {		
+			if (espec.error) {
+				 deffered.reject(espec.error);
+			}				
+			return deffered.promise;
+		});		
+	}	
 	
 	function showNotification() {
         Notification.success('Visita Cadastrada com sucesso!');
@@ -116,6 +130,8 @@ angular.module('prataAngularApp')
 				  if(result){
 					var promises = [];	
 					promises.push(cadastrarNovaVisita(visita, $scope.user.login.id_login));	
+					promises.push(pushNovaVisita(visita));	
+					
 					$q.all(promises).then(function(retorno) {
 						if(retorno[0].type===1){
 							showErrorNotification(retorno[0].msg);

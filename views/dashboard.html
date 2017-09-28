@@ -17,8 +17,8 @@
 								<img ng-if="user.login.url_perfil" src="{{user.login.url_perfil}}">
 							</div>
 							<div class="profile-info">
-								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==3">{{user.especificador.nome}}</h4>
-								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==4">{{user.cliente.nome}}</h4>
+								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==3">{{user.especificador.nome}} {{user.especificador.sobrenome}}</h4>
+								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==4">{{user.cliente.nome}} {{user.especificador.sobrenome}}</h4>
 								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==2">{{user.empresa.nome}}</h4>
 								<h4 class="name text-weight-semibold" ng-if="user.login.id_tipo_login==1">Administrador</h4>
 								<h5 class="role" ng-if="user.login.id_tipo_login==3">Especificador</h5>
@@ -37,7 +37,7 @@
 							</div>
 							<div id="collapse1One" class="accordion-body collapse in">
 								<div class="panel-body">
-									<ul class="widget-todo-list" ng-if="true">	
+									<ul class="widget-todo-list" ng-if="false">	
 										<li>
 										<label class="todo-label" for="todoListItem3"><span>Nenhuma Notificação</span></label>
 											
